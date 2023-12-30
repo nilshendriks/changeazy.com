@@ -366,7 +366,8 @@ footer a + p {
     left: 30%;
     top: 50%;
   }
-  .mdl-hero .motto + img {
+  .mdl-hero .motto + img,
+  .mdl-hero .motto + picture {
     float: right;
     max-width: 50%;
   }

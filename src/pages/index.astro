@@ -1,5 +1,13 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import { Picture } from 'astro:assets';
+import hero1 from "../assets/images/hero1.jpg";
+import coachme600 from "../assets/images/coachme-600x600.jpg";
+import flyer600 from "../assets/images/1.square-flyer-600x600.jpg";
+import office600 from "../assets/images/1.office-600x600.jpg";
+import perry1_600 from "../assets/images/1.perry-600x600.jpg";
+import legwork from "../assets/images/legwork.jpg";
+import wimper from "../assets/images/wimper.jpg";
 ---
 <BaseLayout title="Home Page">
   <section id="hero">
@@ -9,7 +17,15 @@ import BaseLayout from '../layouts/BaseLayout.astro';
         <p>change your life </p>
         <p>ChangeEazy !</p>
         </div>
-      <img src="/assets/images/hero1.jpg" alt="hero image">
+      <!--<img src="/assets/images/hero1.jpg" alt="hero image" width="1117" height="746">-->
+      <Picture
+        class="mdl-hero__image"
+        src={hero1}
+        formats={['avif', 'webp']}
+        alt="photo of Niki Fekete"
+        loading="eager"
+        pictureAttributes={{class: "mdl-hero__picture"}}
+      />
     </div>
     <div class="grid">
       <div class="column">
@@ -28,7 +44,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
       <h1>Coaching</h1>
       <p>Coaching is a great way to facilitate changes and during the process you find ways to develop and create the life you want.<br>
         Through the process of coaching combined with Patterns of Physical Transformation techniques Niki is creating a strong awareness of the neurological functions. It results in a deeper awareness in a persons body and mind. A fast and effective way to change muscular tension and more comfort.</p>
-      <p>Niki is dedicated to provide a safe and supportive environment to learn, grow and make changes in your life.</p>    <a href="coaching" class="btn">Read More</a>
+      <p>Niki is dedicated to provide a safe and supportive environment to learn, grow and make changes in your life.</p>    <a href="coaching" class="btn">Read More about Coaching</a>
     </div>
     <div class="call-out">
       <div class="content-container">
@@ -55,7 +71,13 @@ import BaseLayout from '../layouts/BaseLayout.astro';
       <ul class="showcase grid gutter-1">
         <li class="showcase-item column">
           <a href="/trainings/personal" class="showcase-link wiggle-me">
-            <img src="/assets/images/coachme-600x600.jpg" alt="Thumbnail for I coach ME" class="showcase-image">
+            <!--<img src="/assets/images/coachme-600x600.jpg" alt="Thumbnail for I coach ME" class="showcase-image" width="600" height="600">-->
+            <Picture
+              src={coachme600}
+              formats={['avif', 'webp']}
+              alt="Thumbnail for I coach ME"
+              pictureAttributes={{class: "showcase-image"}}
+            />
             <!-- <div class="showcase-caption">
     <h3 class="showcase-title">I coach ME</h3>
   </div> -->
@@ -65,7 +87,13 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 
         <li class="showcase-item column">
           <a href="/trainings/manager" class="showcase-link wiggle-me">
-            <img src="/assets/images/1.square-flyer.jpg" alt="Thumbnail for Stress management" class="showcase-image">
+            <!--<img src="/assets/images/1.square-flyer-600x600.jpg" alt="Thumbnail for Stress management" class="showcase-image" width="1000" height="1000">-->
+            <Picture
+              src={flyer600}
+              formats={['avif', 'webp']}
+              alt="Thumbnail for Stress management"
+              pictureAttributes={{class: "showcase-image"}}
+            />
             <!-- <div class="showcase-caption">
     <h3 class="showcase-title">Stress management</h3>
   </div> -->
@@ -75,7 +103,13 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 
         <li class="showcase-item column">
           <a href="/trainings/performance" class="showcase-link wiggle-me">
-            <img src="/assets/images/1.office-600x600.jpg" alt="Thumbnail for Effective communication skills" class="showcase-image">
+            <!--<img src="/assets/images/1.office-600x600.jpg" alt="Thumbnail for Effective communication skills" class="showcase-image" width="600" height="600">-->
+            <Picture
+              src={office600}
+              formats={['avif', 'webp']}
+              alt="Thumbnail for Effective communication skills"
+              pictureAttributes={{class: "showcase-image"}}
+            />
             <!-- <div class="showcase-caption">
     <h3 class="showcase-title">Effective communication skills</h3>
   </div> -->
@@ -85,7 +119,13 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 
         <li class="showcase-item column">
           <a href="/trainings/culture" class="showcase-link wiggle-me">
-            <img src="/assets/images/1.perry-600x600.jpg" alt="Thumbnail for Physical Transformation, The Perry Method" class="showcase-image">
+            <!--<img src="/assets/images/1.perry-600x600.jpg" alt="Thumbnail for Physical Transformation, The Perry Method" class="showcase-image" width="600" height="600">-->
+            <Picture
+              src={perry1_600}
+              formats={['avif', 'webp']}
+              alt="Thumbnail for Physical Transformation, The Perry Method"
+              pictureAttributes={{class: "showcase-image"}}
+            />
             <!-- <div class="showcase-caption">
     <h3 class="showcase-title">Physical Transformation, The Perry Method</h3>
   </div> -->
@@ -94,7 +134,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 
 
       </ul>    <!-- <a class="projects-section-more"><a href="https://changeazy.com/trainings" class="btn">show all trainings &hellip;</a></p> -->
-      <a href="trainings" class="btn btn-center">Read More</a>
+      <a href="trainings" class="btn btn-center">Read More about Trainings</a>
     </div>
   </section>
   <!-- bodywork -->
@@ -103,9 +143,17 @@ import BaseLayout from '../layouts/BaseLayout.astro';
       <div class="column">
         <h2>Bodywork</h2>
         <p>In the domain of Trans-formational bodywork through mindful movement, The Perry Method (Patterns of Physical Transformation) is elegance at its finest. It is the best of: Feldenkrais, NLP and Functional neurology… synthesised.</p>
-        <p><a href="/bodywork" class="btn">Read More</a></p>      </div>
+        <p><a href="/bodywork" class="btn">Read More about Bodywork</a></p>      </div>
       <div class="column">
-        <figure><img src="/assets/images/legwork.jpg" alt=""></figure>      </div>
+        <figure>
+          <!--<img src="/assets/images/legwork.jpg" alt="leg work" width="512" height="682">-->
+          <Picture
+            src={legwork}
+            formats={['avif', 'webp']}
+            alt="legwork"
+            pictureAttributes={{class: ""}}
+          />
+        </figure>      </div>
     </div>
     <!-- <div class="content-container">
       <h1>Bodywork</h1>
@@ -116,13 +164,21 @@ import BaseLayout from '../layouts/BaseLayout.astro';
   <section id="about">
     <div class="grid">
       <div class="column">
-        <figure><img src="/assets/images/niki-wimper.jpg" alt=""></figure>    </div>
+        <figure>
+          <!--<img src="/assets/images/niki-wimper.jpg" alt="niki fekete" width="637" height="1130">-->
+          <Picture
+            src={wimper}
+            formats={['avif', 'webp']}
+            alt="niki fekete"
+            pictureAttributes={{class: ""}}
+          />
+        </figure>    </div>
       <div class="column">
         <h1>About</h1>
         <p>Niki is a dedicated trainer, coach and <em>Patterns of Physical Transformation</em> practitioner with an extensive international leadership and sales background.</p>
         <p>Niki's mission is to support and enable individuals and teams in maximising their potential, reaching their goals, and enjoying a balanced, healthy and successful life – aligned with one’s values.</p>
         <p>You learn to improve your life, raise your standards and lead a happy, successful and fulfilling life. You will maximise your potentials and you learn to see opportunities, act on them and turn them into stepping stones to reach your goals.</p>
-        <p><a href="/about" class="btn">Read More</a></p>    </div>
+        <p><a href="/about" class="btn">Read More about me</a></p>    </div>
     </div>
   </section>
   <!-- testimonials -->
