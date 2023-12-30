@@ -1,0 +1,30 @@
+---
+import "../styles/main.css";
+// import BaseHead from '../components/BaseHead.astro';
+// import Footer from '../components/Footer.astro';
+
+import TheHeader from "../components/TheHeader.astro";
+import MobileNav from "../components/MobileNav.astro";
+import TheFooter from "../components/TheFooter.astro";
+import ButtonBar from "../components/ButtonBar.astro";
+const { title } = Astro.props;
+---
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{title}</title>
+  <meta name="description" content="This is ChangeEazy">
+  <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,700&display=swap" rel="stylesheet">
+</head>
+<body>
+<TheHeader />
+<main>
+  <slot />
+  <ButtonBar />
+</main>
+<MobileNav />
+<TheFooter />
+</body>
+</html>

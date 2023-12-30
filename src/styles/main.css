@@ -1,0 +1,573 @@
+/* @import "https://unpkg.com/open-props";
+@import "https://unpkg.com/open-props/normalize.min.css"; */
+
+:root {
+  --color-brand-primary: #ff4500;
+  --color-brand-secondary: #261e66;
+}
+
+/* -----  1.2 Reset & Normalization  ---------------------------------------- */
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  border: none;
+  box-sizing: border-box;
+  list-style: none;
+}
+
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+main,
+menu,
+nav,
+section,
+summary {
+  /* Add correct display for IE 9- and some newer browsers */
+  display: block;
+}
+
+::-moz-selection {
+  background: var(--color-brand-primary);
+  color: #261e66;
+}
+
+::selection {
+  background: var(--color-brand-primary);
+  color: #261e66;
+}
+
+html {
+  background-color: #fafafa;
+  color: #444;
+  font-family: "Roboto",sans-serif;
+  font-size: 1rem;
+  line-height: 1.5;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  font-size: calc(19 / 16 * 1rem);
+  font-weight: 400;
+}
+
+/* Links */
+a {
+  color: inherit;
+  text-decoration: none;
+  border-bottom: 2px solid var(--color-brand-primary);
+}
+
+a:hover,
+a:focus,
+a:active {
+  color: var(--color-brand-primary);
+}
+
+/* Headings */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+ul,
+ol,
+figure,
+pre {
+  /* Reset font-sizes and normalize margins */
+  font-size: inherit;
+  line-height: inherit;
+  margin: 0 0 1.5rem;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  font-family: Roboto, sans-serif;
+  font-weight: 100;
+}
+
+h1 {
+  font-size: 2.875rem;
+}
+
+h2 {
+  font-size: 2.25rem;
+}
+
+h3 {
+  font-size: 1.75rem;
+}
+
+h4 {
+  font-size: 1.375rem;
+}
+
+img {
+  border-style: none;
+  max-width: 100%;
+  height: auto;
+}
+
+figcaption {
+  font-size: 0.75rem;
+  line-height: 1.5rem;
+}
+
+
+.masthead {
+  background-color: #fff;
+  padding: 1em 0;
+}
+
+.branding .logo {
+  display: block;
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+.branding .logo svg {
+  display: block;
+}
+
+@media only screen and (max-width: 768px) {
+  .branding .logo svg {
+    margin: 0 auto;
+  }
+}
+@media only screen and (min-width: 768px) {
+  .masthead {
+    box-shadow: 0px 8px 10px rgba(45, 45, 45, 0.25);
+    position: fixed;
+    width: 100%;
+    z-index: 99;
+    padding: 1em 1em;
+  }
+  .masthead .grid {
+    overflow: hidden;
+    clear: both;
+    max-width: 1290px;
+    margin: 0 auto;
+    position: relative;
+  }
+  .masthead .branding {
+    float: left;
+  }
+  .masthead .navigation {
+    float: right;
+    transform: translateY(-50%);
+    top: 50%;
+    position: absolute;
+    right: 0;
+  }
+  .masthead .navigation .mdl-menu li {
+    display: inline-block;
+  }
+  .masthead .navigation a {
+    font-size: 12px;
+    text-decoration: none;
+    border-bottom: none;
+  }
+}
+.masthead .navigation {
+  display: none;
+}
+@media only screen and (min-width: 768px) {
+  .masthead .navigation {
+    display: block;
+  }
+}
+@media only screen and (min-width: 768px) {
+  main {
+    padding-top: 5em;
+  }
+}
+
+@media only screen and (min-width: 768px) {
+  .navigation.mobile {
+    display: none;
+  }
+}
+.mdl-menu {
+  margin: 0;
+}
+.mdl-menu a {
+  display: block;
+  font-weight: 300;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  padding: 6px 8px;
+  border-bottom: 1px solid #ccc;
+}
+.menu-item.is-active a {
+  font-weight: 700;
+  color: #ff4500;
+}
+
+#coaching, #bodywork, #testimonials {
+  background-color: #f2f2f2;
+}
+@media only screen and (min-width: 768px) {
+  #coaching, #trainings, #bodywork, #about, #testimonials {
+    padding-top: 95px;
+  }
+}
+#trainings .content-container p {
+  max-width: none;
+}
+#testimonials h1 {
+  text-align: center;
+}
+.call-out {
+  background-color: var(--color-brand-secondary);
+  color: #fff;
+  text-align: center;
+  padding: 0 0 2em 0;
+}
+@media only screen and (max-width: 768px) {
+  .call-out .content-container h2 {
+    font-size: 24px;
+  }
+}
+.call-out .content-container p {
+  margin: 0;
+  max-width: none;
+}
+.call-out .content-container ul {
+  text-align: left;
+  margin: 0 auto 0 1em;
+}
+.call-out .content-container ul li {
+  list-style: disc;
+}
+@media only screen and (min-width: 768px) {
+  .call-out .content-container ul {
+    max-width: 60%;
+    margin: 0 auto;
+  }
+}
+.call-out .btn {
+  background-color: #fff;
+  color: var(--color-brand-secondary);
+}
+@media only screen and (min-width: 768px) {
+  .call-out {
+    padding: 2em;
+  }
+}
+/* ----- 2.3 Grid & Layout ------------------------------------------------ */
+.grid {
+  overflow: hidden;
+  clear: both;
+}
+@media only screen and (min-width: 768px) {
+  .grid .column {
+    width: 50%;
+    float: left;
+  }
+}
+@media only screen and (min-width: 768px) {
+  section .grid {
+    max-width: 960px;
+    margin: 0 auto;
+  }
+}
+section .grid .column {
+  padding: 1em;
+}
+.content-container {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 1em 1em 2em;
+}
+@media only screen and (min-width: 768px) {
+  .content-container p {
+    max-width: 50%;
+  }
+}
+@media only screen and (min-width: 768px) {
+  .content-container.contentpage p {
+    max-width: none;
+  }
+}
+.content-container ul, .content-container li {
+  list-style: disc;
+}
+
+/* footer */
+footer {
+  text-align: center;
+  font-size: 1rem;
+  padding: 1em;
+}
+
+footer a {
+  display: inline-block;
+  margin-bottom: 1em;
+}
+
+footer a + p {
+  font-size: 14px;
+}
+
+.mdl-buttonbar {
+  text-align: center;
+  padding-top: 2em;
+}
+
+.mdl-buttonbar p {
+  margin-bottom: 1rem;
+}
+
+.btn {
+  display: inline-block;
+  background-color: var(--color-brand-secondary);
+  color: #fff;
+  font-weight: 700;
+  padding: 10px 12px;
+  border-bottom: none;
+  border-radius: 14px;
+}
+
+.btn.btn-center {
+  left: 50%;
+  transform: translateX(-50%);
+  position: relative;
+}
+
+.mdl-hero {
+  background-color: #fff;
+}
+.mdl-hero .motto {
+  margin-bottom: 1em;
+}
+@media only screen and (min-width: 768px) {
+  .mdl-hero {
+    max-height: 500px;
+    overflow: hidden;
+    clear: both;
+    position: relative;
+  }
+  .mdl-hero .motto {
+    float: left;
+    transform: translate(-50%, -50%);
+    position: absolute;
+    left: 30%;
+    top: 50%;
+  }
+  .mdl-hero .motto + img {
+    float: right;
+    max-width: 50%;
+  }
+  .mdl-hero .motto p {
+    text-align: left;
+  }
+}
+.mdl-hero p {
+  font-size: 2.25rem;
+  font-weight: 100;
+  margin: 0;
+  line-height: 1;
+  text-align: center;
+}
+.mdl-hero p + p {
+  font-weight: 300;
+}
+.mdl-hero p + p + p {
+  font-weight: 400;
+}
+
+.showcase {
+  position: relative;
+  list-style: none !important;
+}
+.showcase-item {
+  list-style: none !important;
+  margin-bottom: 0.75rem;
+  position: relative;
+}
+@media all and (min-width: 38em) {
+  .showcase-item:nth-last-child(3n + 2):first-child, .showcase-item:nth-last-child(3n + 2):first-child + .showcase-item, .showcase-item:nth-last-child(3n + 1):first-child, .showcase-item:nth-last-child(3n + 1):first-child ~ .showcase-item:nth-child(-n + 4) {
+    /* x = items When x % 3 = 2, select first and second item: When x % 3 = 1, select first 4 items: */
+    width: 50%;
+  }
+}
+@media all and (min-width: 56em) {
+  .showcase-item {
+    width: 33.33%;
+  }
+}
+.showcase-link {
+  display: block;
+  position: relative;
+  padding-top: 100%;
+  z-index: 0;
+  border-bottom: 0;
+}
+.showcase-caption {
+  position: absolute;
+  top: 0.75rem;
+  left: 0.75rem;
+  right: 0.75rem;
+  bottom: 0.75rem;
+  background: rgba(38, 30, 102, 0.95);
+  color: #fff;
+  letter-spacing: 0.05em;
+  transition: 0.5s background-color;
+}
+.showcase-title {
+  margin-bottom: 0;
+  text-align: center;
+  text-align: center;
+  width: 100%;
+  padding: 0 1.5rem;
+  /* Vertically center the caption */
+  position: absolute;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+  transform: translateY(-50%);
+  transition: 0.5s font-size;
+}
+.showcase-image {
+  display: block;
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+.showcase-link:hover .showcase-caption, .showcase-link:focus .showcase-caption {
+  background-color: var(--color-brand-primary);
+}
+.showcase-link:hover .showcase-caption .showcase-title, .showcase-link:focus .showcase-caption .showcase-title {
+  font-size: 30px;
+  text-shadow: 1px 1px 2px black;
+}
+@media (any-hover: none) {
+  /* The media query, enclosing these rules matches only touch-screen devices that do not support hover due to the lack of a pointing device like a mouse. It does not work in all mobile browsers, but progressively enhances the experience on supported devices. Tested in Safari (iOS) 9.3 */
+  .showcase-caption {
+    opacity: 1;
+    /* Reset will-change property to keep it from eating up unneccessary resources on touch-only devices */
+    will-change: auto;
+  }
+  .showcase-title {
+    font-size: 0.85em;
+  }
+}
+
+@-ms-keyframes wiggle{0%{-ms-transform:rotate(3deg);}50%{-ms-transform:rotate(-3deg);}100%{-ms-transform:rotate(3deg);}}
+@-moz-keyframes wiggle{0%{-moz-transform:rotate(3deg);}50%{-moz-transform:rotate(-3deg);}100%{-moz-transform:rotate(3deg);}}
+@-webkit-keyframes wiggle{0%{-webkit-transform:rotate(3deg);}50%{-webkit-transform:rotate(-3deg);}100%{-webkit-transform:rotate(3deg);}}
+@keyframes wiggle{0%{transform:rotate(3deg);}50%{transform:rotate(-3deg);}100%{transform:rotate(3deg);}}
+.wiggle-me:hover{-ms-animation:wiggle .3s 2;-moz-animation:wiggle .3s 2;-webkit-animation:wiggle .3s 2;animation:wiggle .3s 2;}
+
+blockquote, q {
+  quotes: none;
+  font-family: Georgia, sans-serif;
+  font-style: italic;
+}
+q p:before, blockquote p:before {
+  content: open-quote;
+  font-family: georgia;
+  vertical-align: middle;
+}
+@media only screen and (min-width: 768px) {
+  q p:before, blockquote p:before {
+    font-size: 60px;
+    margin-left: -28px;
+  }
+}
+q p:after, blockquote p:after {
+  content: close-quote;
+  font-family: georgia;
+  vertical-align: middle;
+}
+@media only screen and (min-width: 768px) {
+  q p:after, blockquote p:after {
+    font-size: 60px;
+  }
+}
+q p, blockquote p {
+  quotes: "‘\2009" "\2009’" "“\2009" "\2009”";
+  text-align: left;
+}
+@media only screen and (min-width: 768px) {
+  q p, blockquote p {
+    font-size: 22px;
+    line-height: 44px;
+    margin-left: 8px;
+  }
+}
+cite {
+  display: block;
+  text-align: center;
+  font-weight: 700;
+  margin-bottom: 3rem;
+}
+.cite {
+  font-weight: 700;
+}
+.content-container blockquote p {
+  max-width: none;
+}
+@media only screen and (min-width: 768px) {
+  .content-container blockquote {
+    max-width: 70%;
+    margin: 0 auto;
+  }
+}
+
+
+hr {
+  font-size: 1.25rem;
+  font-weight: 500;
+  height: 1.5rem;
+  text-align: center;
+  margin-top: 3rem;
+  margin-bottom: 1.5rem;
+  color: var(--color-brand-primary);
+}
+
+hr::before {
+  content: "";
+  position: relative;
+  display: block;
+  background: currentColor;
+  height: 2px;
+  top: calc(50% + 1px);
+}
+
+hr::after {
+  content: "× × ×";
+  background: #fffff8;
+  position: relative;
+  padding: 0 0.25rem;
+  top: -0.25rem;
+}
+
+h1 + hr,
+.intro + hr {
+  margin-top: -1.5rem;
+}
+
+dl {
+  margin-bottom: 1rem;
+}
+
+dt {
+  font-weight: 700;
+  font-style: normal;
+}
+
+dd+ dt {
+  margin-top: 1em;
+}

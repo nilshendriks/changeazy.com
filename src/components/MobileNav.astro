@@ -1,0 +1,14 @@
+---
+import {navData} from "../data/navData";
+---
+<nav class="navigation mobile" role="navigation">
+  <ul class="mdl-menu">
+    {
+      navData.map((i) => (
+        <li class="menu-item">
+          <a href={i.href}>{i.name}</a>
+        </li>
+      ))
+    }
+  </ul>
+</nav>
