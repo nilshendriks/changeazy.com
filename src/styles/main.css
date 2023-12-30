@@ -1,6 +1,3 @@
-/* @import "https://unpkg.com/open-props";
-@import "https://unpkg.com/open-props/normalize.min.css"; */
-
 :root {
   --color-brand-primary: #ff4500;
   --color-brand-secondary: #261e66;
@@ -93,7 +90,7 @@ h1,
 h2,
 h3,
 h4 {
-  font-family: Roboto, sans-serif;
+  /* font-family: Roboto, sans-serif; */
   font-weight: 100;
 }
 
@@ -148,7 +145,7 @@ figcaption {
 }
 @media only screen and (min-width: 768px) {
   .masthead {
-    box-shadow: 0px 8px 10px rgba(45, 45, 45, 0.25);
+    box-shadow: 0 8px 10px rgba(45, 45, 45, 0.25);
     position: fixed;
     width: 100%;
     z-index: 99;
@@ -430,13 +427,11 @@ footer a + p {
 .showcase-title {
   margin-bottom: 0;
   text-align: center;
-  text-align: center;
   width: 100%;
   padding: 0 1.5rem;
   /* Vertically center the caption */
   position: absolute;
   top: 50%;
-  -webkit-transform: translateY(-50%);
   transform: translateY(-50%);
   transition: 0.5s font-size;
 }
@@ -478,7 +473,7 @@ blockquote, q {
 }
 q p:before, blockquote p:before {
   content: open-quote;
-  font-family: georgia;
+  font-family: georgia, serif;
   vertical-align: middle;
 }
 @media only screen and (min-width: 768px) {
@@ -489,7 +484,7 @@ q p:before, blockquote p:before {
 }
 q p:after, blockquote p:after {
   content: close-quote;
-  font-family: georgia;
+  font-family: georgia, serif;
   vertical-align: middle;
 }
 @media only screen and (min-width: 768px) {
