@@ -12,7 +12,12 @@
   "dependencies": {
     "@astrojs/check": "^0.3.4",
     "@fontsource/roboto": "^5.0.8",
+    "@storyblok/astro": "^4.0.0",
     "astro": "^4.0.8",
-    "typescript": "^5.3.3"
+    "typescript": "^5.3.3",
+    "vite": "^5.0.11"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-basic-ssl": "^1.0.2"
   }
 }
