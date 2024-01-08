@@ -571,7 +571,7 @@ q p, blockquote p {
   }
 }
 
-cite {
+cite, blockquote + p {
   display: block;
   text-align: center;
   font-weight: 700;
@@ -599,7 +599,7 @@ hr {
   font-weight: 500;
   height: 1.5rem;
   text-align: center;
-  margin-top: 3rem;
+  margin-top: 1rem;
   margin-bottom: 1.5rem;
   color: var(--color-brand-primary);
 }

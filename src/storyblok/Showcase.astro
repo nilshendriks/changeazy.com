@@ -1,0 +1,27 @@
+---
+import { storyblokEditable } from '@storyblok/astro'
+
+const { blok } = Astro.props
+---
+<ul class="showcase grid gutter-1" {...storyblokEditable(blok)}>
+  <li class="showcase-item column">
+    <a href="/trainings/personal" class="showcase-link wiggle-me">
+      <img src="/assets/images/coachme-600x600.jpg" alt="Thumbnail for I coach ME" class="showcase-image" width="600" height="600">
+    </a>
+  </li>
+  <li class="showcase-item column">
+    <a href="/trainings/manager" class="showcase-link wiggle-me">
+      <img src="/assets/images/1.square-flyer.jpg" alt="Thumbnail for Stress management" class="showcase-image" width="1000" height="1000">
+    </a>
+  </li>
+  <li class="showcase-item column">
+    <a href="/trainings/performance" class="showcase-link wiggle-me">
+      <img src="/assets/images/1.office-600x600.jpg" alt="Thumbnail for Effective communication skills" class="showcase-image" width="600" height="600">
+    </a>
+  </li>
+  <li class="showcase-item column">
+    <a href="/trainings/culture" class="showcase-link wiggle-me">
+      <img src="/assets/images/1.perry-600x600.jpg" alt="Thumbnail for Physical Transformation, The Perry Method" class="showcase-image" width="600" height="600">
+    </a>
+  </li>
+</ul>

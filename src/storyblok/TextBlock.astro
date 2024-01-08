@@ -1,11 +1,31 @@
 ---
-import { storyblokEditable, renderRichText } from '@storyblok/astro'
-import StoryblokComponent from '@storyblok/astro/StoryblokComponent.astro'
+import { storyblokEditable, renderRichText } from '@storyblok/astro';
+import StoryblokComponent from '@storyblok/astro/StoryblokComponent.astro';
+// import RichTextRenderer from "@storyblok/astro/RichTextRenderer.astro";
+import RichTextRenderer from "storyblok-rich-text-astro-renderer/RichTextRenderer.astro";
+import type { RichTextType } from "storyblok-rich-text-astro-renderer"
+
+export interface Props {
+  blok: {
+    text: RichTextType;
+  };
+}
 
 const { blok } = Astro.props
-const renderedRichText = renderRichText(blok.content)
+/*const renderedRichText = renderRichText(blok.content)*/
+const { text } = blok;
 ---
-<div {...storyblokEditable(blok)}>
-  <h1>hello</h1>
-  <div class="prose" set:html={renderedRichText} />
+<div {...storyblokEditable(blok)} class="content-container contentpage">
+  <!--<RichTextRenderer richTextData={blok.content} />-->
+  <!--<div class="prose" set:html={renderedRichText} />-->
+  <!--<RichTextRenderer content={text} {...storyblokEditable(blok)} />-->
+  <RichTextRenderer
+    content={blok.content} {...storyblokEditable(blok)}
+    resolver={(blok) => {
+      return {
+        component: StoryblokComponent,
+        props: { blok },
+      };
+    }}
+  />
 </div>

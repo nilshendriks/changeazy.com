@@ -1,22 +1,25 @@
 ---
+// import Nav from "./Nav.astro";
+import TheLogo from "./TheLogo.astro";
+// import {navData} from "../data/navData";
 import { useStoryblokApi } from '@storyblok/astro'
+import { languages, getTransLink } from '../utils/langs'
+
+const { language, langSwitch } = Astro.props
 const storyblokApi = useStoryblokApi()
+
 const { data } = await storyblokApi.get('cdn/stories/config', {
   version: 'draft',
   resolve_links: 'url',
 })
 const headerMenu = data?.story?.content?.header_menu
 
-// import Nav from "./Nav.astro";
-import TheLogo from "./TheLogo.astro";
-import {navData} from "../data/navData";
-
 ---
 <header class="header masthead" role="banner">
   <div class="grid">
 
     <div class="branding">
-      <a class="logo" href="/" rel="home" title="take me home">
+      <a class="logo" href={getTransLink(language, '/')} rel="home" title="take me home">
         <TheLogo />
       </a>
     </div>
@@ -26,11 +29,25 @@ import {navData} from "../data/navData";
       <ul class="mdl-menu">
         {
           headerMenu.map((menu) => (
-            <li>
-              <a href={`/${menu.link.cached_url}`} class="hover:text-[#50b0ae]">
+            <li class="menu-item">
+              <!--<a href={`/${menu.link.cached_url}`} class="hover:text-[#50b0ae]">
                 {menu.link.story.name}
-              </a>
+              </a>-->
+              <!--<a href={getTransLink(language, '/about')}>About</a>-->
+              <a href={getTransLink(language, `/${menu.link.cached_url}`)}>{menu.link.story.name}</a>
             </li>
+            <!--<li class="langSwitch">
+              {
+                languages.map((lang) => (
+                  <a
+                    class={`lang-toggle ${lang === language ? 'bg-gray-200' : ''}`}
+                    href={langSwitch[lang]}
+                  >
+                    {lang}
+                  </a>
+                ))
+              }
+            </li>-->
           ))
         }
       </ul>
@@ -38,3 +55,9 @@ import {navData} from "../data/navData";
 
   </div>
 </header>
+<style is:global>
+  .langSwitch {
+    /* display: flex !important; */
+    display: none !important;
+  }
+</style>
