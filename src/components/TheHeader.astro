@@ -1,9 +1,9 @@
 ---
 import TheLogo from "./TheLogo.astro";
 import { useStoryblokApi } from '@storyblok/astro'
-import { languages, getTransLink } from '../utils/langs'
+// import { languages, getTransLink } from '../utils/langs'
 
-const { language, langSwitch } = Astro.props
+// const { language, langSwitch } = Astro.props
 const storyblokApi = useStoryblokApi()
 
 const { data } = await storyblokApi.get('cdn/stories/config', {
@@ -17,7 +17,10 @@ const headerMenu = data?.story?.content?.header_menu
   <div class="grid">
 
     <div class="branding">
-      <a class="logo" href={getTransLink(language, '/')} rel="home" title="take me home">
+      <!--<a class="logo" href={getTransLink(language, '/')} rel="home" title="take me home">
+        <TheLogo />
+      </a>-->
+      <a class="logo" href="/"} rel="home" title="take me home">
         <TheLogo />
       </a>
     </div>
@@ -28,24 +31,10 @@ const headerMenu = data?.story?.content?.header_menu
         {
           headerMenu.map((menu) => (
             <li class="menu-item">
-              <!--<a href={`/${menu.link.cached_url}`} class="hover:text-[#50b0ae]">
+              <a href={`/${menu.link.cached_url}`} class="hover:text-[#50b0ae]">
                 {menu.link.story.name}
-              </a>-->
-              <!--<a href={getTransLink(language, '/about')}>About</a>-->
-              <a href={getTransLink(language, `/${menu.link.cached_url}`)}>{menu.link.story.name}</a>
+              </a>
             </li>
-            <!--<li class="langSwitch">
-              {
-                languages.map((lang) => (
-                  <a
-                    class={`lang-toggle ${lang === language ? 'bg-gray-200' : ''}`}
-                    href={langSwitch[lang]}
-                  >
-                    {lang}
-                  </a>
-                ))
-              }
-            </li>-->
           ))
         }
       </ul>
@@ -54,8 +43,4 @@ const headerMenu = data?.story?.content?.header_menu
   </div>
 </header>
 <style is:global>
-  .langSwitch {
-    /* display: flex !important; */
-    display: none !important;
-  }
 </style>

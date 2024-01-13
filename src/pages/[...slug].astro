@@ -1,89 +1,30 @@
 ---
 import { useStoryblokApi } from '@storyblok/astro'
+// @ts-ignore
 import StoryblokComponent from '@storyblok/astro/StoryblokComponent.astro'
 import BaseLayout from '../layouts/BaseLayout.astro'
-
-/*
-export async function getStaticPaths() {
-  const storyblokApi = useStoryblokApi()
-
-  const { data } = await storyblokApi.get('cdn/links', {
-    // version: 'draft',
-    version: import.meta.env.VITE_ENVIRONMENT  ===  "preview"  ?  "draft"  : "published",
-  })
-  let links = data.links
-  links = Object.values(links)
-
-  return links.map((link) => {
-    return {
-      params: {
-        slug: link.slug === 'home' ? undefined : link.slug,
-      },
-    }
-  })
-}
-*/
+import parseUrl from '../utils/parseUrl'
+import isPreview from '../utils/isPreview'
+import generateStaticPaths from '../utils/generateStaticPaths'
 
 export async function getStaticPaths() {
-  //You can also have this in an utils file so it can be reused.
-  let languages = ['en', 'nl']
-  const storyblokApi = useStoryblokApi()
-  const { data } = await storyblokApi.get('cdn/links', {
-    // version: import.meta.env.VITE_ENVIRONMENT  ===  "preview"  ?  "draft"  : "published",
-    version: 'draft',
-  })
-  let links = data.links
-  links = Object.values(links)
-  let paths = []
-  links.forEach((link: { slug: string }) => {
-    languages.forEach((language) => {
-      //This slug will be used for fetching data from storyblok
-      let slug = link.slug === 'home' ? undefined : link.slug
-      //This will be used for generating all the urls for astro
-      let full_url = language === 'en' ? slug : `${language}/${slug ?? ''}`
-      //This will let us change the url for diffrent versions
-      //We are storing all the possible language urls
-      let langSwitch = {}
-      languages.forEach((lang) => {
-        langSwitch = {
-          ...langSwitch,
-          [lang]: lang === 'en' ? `/${slug ?? ''}` : `/${lang}/${slug ?? ''}`,
-        }
-      })
-      paths.push({
-        props: { language, slug, langSwitch },
-        params: {
-          slug: full_url,
-        },
-      })
-    })
-  })
-  return paths
+  // We have moved all the code to a generateStaticPaths() function.
+  return await generateStaticPaths()
 }
 
-/*const { slug } = Astro.params
+const params = Astro.params
+const props = isPreview() ? parseUrl(params?.slug) : Astro.props
+const { slug } = props
 const storyblokApi = useStoryblokApi()
 const { data } = await storyblokApi.get(
   `cdn/stories/${slug === undefined ? 'home' : slug}`,
   {
-    version: 'draft',
-    // version: import.meta.env.VITE_ENVIRONMENT  ===  "preview"  ?  "draft"  : "published",
-  }
-)
-const story = data.story*/
-const { slug, language, langSwitch } = Astro.props
-const storyblokApi = useStoryblokApi()
-const { data } = await storyblokApi.get(
-  `cdn/stories/${slug === undefined ? 'home' : slug}`,
-  {
-    version: 'draft',
-    /*resolve_relations: ['popular-articles.articles'],*/
-    language,
+    version: isPreview() ? 'draft' : 'published',
   }
 )
 const story = data.story
 ---
 
-<BaseLayout langSwitch={langSwitch} language={language}>
-  <StoryblokComponent language={language} blok={story.content} />
+<BaseLayout>
+  <StoryblokComponent blok={story.content} />
 </BaseLayout>
