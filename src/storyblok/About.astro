@@ -1,0 +1,33 @@
+---
+import {storyblokEditable} from '@storyblok/astro';
+import {Picture} from 'astro:assets';
+import wimper from "../assets/images/wimper.jpg";
+const {blok} = Astro.props;
+---
+<section
+  id="about"
+  {...storyblokEditable(blok)}
+>
+  <div class="grid">
+    <div class="column">
+      <figure>
+        <Picture
+          src={wimper}
+          formats={['avif', 'webp']}
+          alt="niki fekete"
+          pictureAttributes={{class: ""}}
+        />
+      </figure>
+    </div>
+    <div class="column">
+      <h1>About</h1>
+      <p>Niki is a dedicated trainer, coach and <em>Patterns of Physical Transformation</em> practitioner with an
+        extensive international leadership and sales background.</p>
+      <p>Niki's mission is to support and enable individuals and teams in maximising their potential, reaching their
+        goals, and enjoying a balanced, healthy and successful life – aligned with one’s values.</p>
+      <p>You learn to improve your life, raise your standards and lead a happy, successful and fulfilling life. You will
+        maximise your potentials and you learn to see opportunities, act on them and turn them into stepping stones to
+        reach your goals.</p>
+      <p><a href="/about" class="btn">Read More about me</a></p></div>
+  </div>
+</section>

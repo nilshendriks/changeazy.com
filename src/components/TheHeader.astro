@@ -1,18 +1,37 @@
 ---
-import Nav from "./Nav.astro";
 import TheLogo from "./TheLogo.astro";
+import { useStoryblokApi } from '@storyblok/astro'
+
+const storyblokApi = useStoryblokApi()
+
+const { data } = await storyblokApi.get('cdn/stories/config', {
+  version: 'published',
+  resolve_links: 'url',
+})
+const headerMenu = data?.story?.content?.header_menu
 ---
 <header class="header masthead" role="banner">
   <div class="grid">
 
     <div class="branding">
-      <a class="logo" href="/" rel="home" title="take me home">
+      <a class="logo" href="/"} rel="home" title="take me home">
         <TheLogo />
       </a>
     </div>
 
     <!-- menu -->
-    <Nav />
-
+    <nav class="navigation" role="navigation">
+      <ul class="mdl-menu">
+        {
+          headerMenu.map((menu) => (
+            <li class="menu-item">
+              <a href={`/${menu.link.cached_url}`} class="hover:text-[#50b0ae]">
+                {menu.link.story.name}
+              </a>
+            </li>
+          ))
+        }
+      </ul>
+    </nav>
   </div>
 </header>

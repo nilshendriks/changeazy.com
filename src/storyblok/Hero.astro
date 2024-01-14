@@ -1,0 +1,66 @@
+---
+import {storyblokEditable} from '@storyblok/astro';
+// import { Picture } from 'astro:assets';
+// import hero1 from "../assets/images/hero1.jpg";
+
+const {blok} = Astro.props;
+// import hero1 from blok.background_image.filename;
+let dynamicHeroClass = blok.layout === 'constrained' ? 'container mx-auto' : ''
+---
+
+<section
+  id="hero"
+  {...storyblokEditable(blok)}
+  class={`${dynamicHeroClass} section`}
+>
+  <div class="mdl-hero">
+    <div class="motto">
+      <p>change your focus</p>
+      <p>change your life </p>
+      <p>ChangeEazy !</p>
+    </div>
+    <img
+      src={blok.background_image.filename}
+      alt={blok.background_image.alt}
+      class="mdl-hero__picture"
+      width="1117" height="746" decoding="async"
+    />
+  </div>
+  <div class="grid">
+    <div class="column">
+      <h2>Empowering People</h2>
+      <p>Make yourself your priority and invest in your development, health and happiness !</p>
+      <p>Investing in yourself is helping you to create the life you want. In any area of your life, coaching sessions,
+        workshops and trainings will provide you insight, confidence and practical tools to lead a more fulfilling,
+        balanced and successful life.</p></div>
+    <div class="column">
+      <h2>Mission</h2>
+      <p>Niki's mission is to support and enable individuals and teams in maximising their potential, reaching their
+        goals, and enjoying a balanced, healthy and successful life – aligned with one’s values.</p>
+      <p>You learn to improve your life, raise your standards and lead a happy, successful and fulfilling life. You will
+        maximise your potentials and you learn to see opportunities, act on them and turn them into stepping stones to
+        reach your goals.</p>
+    </div>
+  </div>
+</section>
+<!--
+<div
+  {...storyblokEditable(blok)}
+  class={`${dynamicHeroClass} min-h-[500px] relative flex items-end justify-center my-6 rounded-[5px] overflow-hidden`}
+>
+  <div
+    class="relative z-10 w-full text-center bg-gradient-to-t from-black/70 via-black/50 to-transparent py-6"
+  >
+    <h1 class="text-6xl text-white font-bold mb-3">
+      {blok.headline}
+    </h1>
+    <h2 class="text-4xl text-white font-light">
+      {blok.subheadline}
+    </h2>
+  </div>
+  <img
+    src={blok.background_image.filename}
+    alt={blok.background_image.alt}
+    class="absolute top-0 left-0 z-0 w-full h-full object-cover"
+  />
+</div>-->
