@@ -1,22 +1,22 @@
 export const navData = [
   {
     name: "coaching",
-    href: "/#coaching"
+    href: "/coaching"
   },
   {
     name: "trainings",
-    href: "/#trainings"
+    href: "/trainings"
   },
   {
     name: "bodywork",
-    href: "/#bodywork"
+    href: "/bodywork"
   },
   {
     name: "about",
-    href: "/#about"
+    href: "/about"
   },
   {
     name: "testimonials",
-    href: "/#testimonials"
+    href: "/testimonials"
   }
 ]
