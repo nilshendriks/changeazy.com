@@ -9,7 +9,6 @@ import MobileNav from "../components/MobileNav.astro";
 import TheFooter from "../components/TheFooter.astro";
 import ButtonBar from "../components/ButtonBar.astro";
 const { title } = Astro.props;
-const { language, langSwitch } = Astro.props
 ---
 <!doctype html>
 <html lang="en">
@@ -20,7 +19,7 @@ const { language, langSwitch } = Astro.props
   <meta name="description" content="This is ChangeEazy">
 </head>
 <body>
-<TheHeader langSwitch={langSwitch} language={language} />
+<TheHeader />
 <!--<main></main>-->
 <slot />
 <ButtonBar />

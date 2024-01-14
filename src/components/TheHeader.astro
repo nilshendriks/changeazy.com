@@ -1,9 +1,7 @@
 ---
 import TheLogo from "./TheLogo.astro";
 import { useStoryblokApi } from '@storyblok/astro'
-// import { languages, getTransLink } from '../utils/langs'
 
-// const { language, langSwitch } = Astro.props
 const storyblokApi = useStoryblokApi()
 
 const { data } = await storyblokApi.get('cdn/stories/config', {
@@ -11,15 +9,11 @@ const { data } = await storyblokApi.get('cdn/stories/config', {
   resolve_links: 'url',
 })
 const headerMenu = data?.story?.content?.header_menu
-
 ---
 <header class="header masthead" role="banner">
   <div class="grid">
 
     <div class="branding">
-      <!--<a class="logo" href={getTransLink(language, '/')} rel="home" title="take me home">
-        <TheLogo />
-      </a>-->
       <a class="logo" href="/"} rel="home" title="take me home">
         <TheLogo />
       </a>
@@ -39,8 +33,5 @@ const headerMenu = data?.story?.content?.header_menu
         }
       </ul>
     </nav>
-
   </div>
 </header>
-<style is:global>
-</style>
