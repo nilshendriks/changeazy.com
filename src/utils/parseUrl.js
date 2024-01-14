@@ -8,7 +8,7 @@ export default function parseUrl(url) {
   urlToArray = urlToArray ? urlToArray.filter(Boolean) : [];
 
   // Setting the default language to be empty or 'en' if needed
-  let defaultLang = '';
+  //let defaultLang = '';
 
   // Extracting the slug directly from the url
   let slug = urlToArray?.join('/') || undefined;
