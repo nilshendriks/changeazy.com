@@ -8,6 +8,7 @@ import office600 from "../assets/images/1.office-600x600.jpg";
 import perry1_600 from "../assets/images/1.perry-600x600.jpg";
 import legwork from "../assets/images/legwork.jpg";
 import wimper from "../assets/images/wimper.jpg";
+import balance from "../assets/images/event-balance.jpg";
 ---
 <BaseLayout title="Home Page">
   <section id="hero">
@@ -69,6 +70,21 @@ import wimper from "../assets/images/wimper.jpg";
       <p>All offline and online trainings and workshops are practical, interactive to give you the opportunity to practice your new tools and techniques that will support you on your journey to success.</p>    <!-- <h2>Upcoming Trainings</h2> -->
 
       <ul class="showcase grid gutter-1">
+        <li class="showcase-item column">
+            <a 
+                href="https://allevents.in/weesp/vergroot-je-flexibiliteit-and-balans-increase-your-flexibility-and-balance/80003268457794" 
+                class="showcase-link wiggle-me" 
+                target="_blank"
+            >
+                <!-- <img src="/assets/images/event-balance.jpg" alt="Thumbnail for Flexibility and Balance" class="showcase-image" width="600" height="600"> -->
+                <Picture
+                src={balance}
+                formats={['avif', 'webp']}
+                alt="Thumbnail for I coach ME"
+                pictureAttributes={{class: "showcase-image"}}
+                />
+            </a>
+        </li>
         <li class="showcase-item column">
           <a href="/trainings/personal" class="showcase-link wiggle-me">
             <!--<img src="/assets/images/coachme-600x600.jpg" alt="Thumbnail for I coach ME" class="showcase-image" width="600" height="600">-->
