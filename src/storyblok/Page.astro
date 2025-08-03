@@ -1,0 +1,46 @@
+---
+/**
+ * Import the `storyblokEditable` helper function:
+ * - This function adds special HTML attributes to a block's wrapper element.
+ * - These attributes allow Storyblok's Visual Editor to recognize the block,
+ *   enabling inline editing features (e.g., clicking on content to edit it live).
+ */
+import { storyblokEditable } from '@storyblok/astro';
+
+/**
+ * Import the generic StoryblokComponent:
+ * - This component dynamically renders any Storyblok block (component) based
+ *   on the `blok.component` property.
+ * - It acts like a dispatcher, choosing which Astro component to render depending
+ *   on the block type.
+ */
+import StoryblokComponent from '@storyblok/astro/StoryblokComponent.astro';
+
+// Define the TypeScript interface representing a Storyblok block (blok)
+interface Blok {
+  _uid: string;          // Unique identifier for this block, used for keys and Storyblok editing
+  component: string;     // The Storyblok component name to determine rendering
+  body?: Blok[];         // Optional array of nested blocks (e.g., sections within sections)
+  [key: string]: any;    // Allow other dynamic fields coming from Storyblok
+}
+
+// Extract the blok prop from Astro props and type it
+const { blok } = Astro.props as { blok: Blok };
+---
+
+{/* 
+  Render the block and its nested children.
+
+  We wrap the content with a <div> that includes `storyblokEditable(blok)`:
+  - Adds Storyblok-specific attributes for Visual Editor inline editing.
+  - Makes the block clickable and editable directly in the live preview.
+
+  We then map over nested blocks inside `blok.body` recursively,
+  rendering each using the StoryblokComponent which knows how to render
+  each component type.
+*/}
+<div {...storyblokEditable(blok)}>
+  {blok.body?.map((nestedBlok) => (
+    <StoryblokComponent blok={nestedBlok} key={nestedBlok._uid} />
+  ))}
+</div>

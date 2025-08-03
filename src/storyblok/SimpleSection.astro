@@ -1,0 +1,69 @@
+
+---
+import { storyblokEditable } from '@storyblok/astro';
+import StoryblokComponent from '@storyblok/astro/StoryblokComponent.astro';
+
+const { blok } = Astro.props;
+---
+
+<section
+  class={`simple-section simple-section--align-${blok.alignment || 'center'}`}
+  {...storyblokEditable(blok)}
+>
+  <div class="simple-section__inner">
+    <div class="simple-section__content">
+      {blok.caption && <p class="simple-section__caption fs-small">{blok.caption}</p>}
+
+      {blok.title && (() => {
+        const Heading = blok.heading_level || 'h2';
+        return <Heading class="simple-section__title">{blok.title}</Heading>;
+      })()}
+
+        {blok.content && blok.content.length > 0 && (
+        <div class="simple-section__text">
+          {blok.content.map((nestedBlock) => (
+          <StoryblokComponent blok={nestedBlock} />
+          ))}
+        </div>
+        )}
+
+        {blok.button && blok.button.length > 0 && <StoryblokComponent blok={blok.button[0]} />}
+    </div>
+  </div>
+</section>
+<style>
+.simple-section {
+  padding-block: 2lh;
+}
+
+.simple-section__inner {
+  width: min(1140px, 100% - 3rem);
+  margin-inline: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.simple-section__caption {
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: #727272;
+  font-weight: 700;
+}
+
+.simple-section--align-center,
+.simple-section--align-center * {
+  text-align: center;
+}
+
+.simple-section--align-left,
+.simple-section--align-left * {
+  text-align: left;
+}
+
+.simple-section__content {
+  width: min(520px, 100%);
+  text-wrap: balance;
+}
+</style>

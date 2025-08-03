@@ -1,0 +1,7 @@
+---
+const { blok } = Astro.props;
+---
+<section {...blok?._editable && { 'data-blok-c': blok._editable, 'data-blok-uid': `${blok._uid}` }}>
+  <!-- Optional: placeholder or future layout -->
+  <!-- <p>This is a stub for section_centered</p> -->
+</section>

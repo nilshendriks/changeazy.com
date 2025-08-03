@@ -1,0 +1,37 @@
+---
+const { blok } = Astro.props;
+---
+
+<a
+  href={blok.url}
+  class={`btn ${blok.style ? `btn--${blok.style.toLowerCase()}` : ''}`}
+>
+  {blok.text}
+</a>
+<style>
+
+.btn {
+  display: inline-block;
+  background-color: var(--color-background-secondary);
+  color: #fff;
+  font-weight: 700;
+  padding: 10px 12px;
+  border-bottom: none;
+  border-radius: 14px;
+  transition: all .3s ease;
+}
+
+.btn:focus, .btn:hover {
+  background-color: var(--color-neutral-10);
+}
+
+.btn--primary {
+  background-color: var(--color-background-primary);
+}
+
+.btn.btn-center {
+  left: 50%;
+  transform: translateX(-50%);
+  position: relative;
+}
+</style>

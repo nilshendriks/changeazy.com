@@ -1,0 +1,72 @@
+---
+
+---
+<div class="section-two-columns section-two-columns--bg-primary section-two-columns--overflow section-two-columns--reverse">
+
+  <div class="section-two-columns__inner">
+
+    <div class="section-two-columns__grid">
+
+      <div class="section-two-columns__grid-item">
+
+        <p class="section-two-columns__caption">Bodywork</p>
+        <h2 class="section-two-columns__title">Elegance in movement</h2>
+        <p>The Perry Method (Patterns of Physical Transformation) is elegance in mindful movement, combining Feldenkrais, NLP, and Functional neurology.</p>
+        <a href="/bodywork" class="btn btn--secondary">Explore Bodywork</a>
+      </div>
+
+      <div class="section-two-columns__grid-item">
+          <img src="/assets/images/niki-alpha-01.avif" alt="niki" width="821" height="1830" class="section-two-columns__img">
+      </div>
+    </div>
+  </div>
+</div>
+<style>
+.section-two-columns {
+  background-color: #fff;
+  padding-block: 2lh;
+}
+
+.section-two-columns__inner {
+  background-color: var(--color-background-tertiary);
+  width: min(768px, 100% - 3rem);
+  margin-inline:  auto;
+  border-radius: 8px;
+}
+
+
+.section-two-columns--bg-primary .section-two-columns__inner {
+  background-color: var(--color-background-primary-light);
+}
+
+.section-two-columns--bg-secondary .section-two-columns__inner {
+  background-color: var(--color-background-secondary-light);
+}
+
+.section-two-columns__grid {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.section-two-columns--reverse .section-two-columns__grid {
+  flex-direction: row-reverse;
+}
+
+.section-two-columns__grid-item {
+  flex: 1 1 270px;
+  padding: 1.5rem;
+}
+
+.section-two-columns__img {
+
+}
+
+.section-two-columns--overflow .section-two-columns__img {
+  object-fit: cover;
+  display: block;
+  transform: scale(1.2);
+  width: 75%;
+  margin-inline: auto;
+}
+</style>

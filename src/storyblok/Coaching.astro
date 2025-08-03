@@ -1,0 +1,24 @@
+---
+import {storyblokEditable} from '@storyblok/astro';
+const {blok} = Astro.props;
+---
+<!-- coaching -->
+<section
+  id="coaching"
+  {...storyblokEditable(blok)}
+>
+  <div class="call-out">
+    <div class="content-container">
+      <h2>When you are ready to take the next step in your career, in your relationship or any other areas of your life</h2>
+      <ul>
+        <li>to leave old habits behind</li>
+        <li>to deal with stress and burn out</li>
+        <li>to be more confident, more successful</li>
+        <li>to stay true to yourself</li>
+        <li>to live healthy</li>
+        <li>to find your passion and reach your goals</li>
+        <li>to take the lead and live a balanced, happy and fulfilling life</li>
+      </ul>    </div>
+    <a href="tel:+31653885727" class="btn btn--primary">Contact for a free intake call</a>
+  </div>
+</section>

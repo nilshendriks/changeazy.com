@@ -1,0 +1,30 @@
+---
+import {storyblokEditable} from '@storyblok/astro';
+import {Picture} from 'astro:assets';
+import legwork from "../assets/images/legwork.jpg";
+const {blok} = Astro.props;
+---
+<!-- bodywork -->
+<section
+  id="bodywork"
+  {...storyblokEditable(blok)}
+>
+  <div class="grid">
+    <div class="column">
+      <h2>Bodywork</h2>
+      <p>In the domain of Trans-formational bodywork through mindful movement, The Perry Method (Patterns of Physical
+        Transformation) is elegance at its finest. It is the best of: Feldenkrais, NLP and Functional neurology…
+        synthesised.</p>
+      <p><a href="/bodywork" class="btn">Read More about Bodywork</a></p></div>
+    <div class="column">
+      <figure>
+        <Picture
+          src={legwork}
+          formats={['avif', 'webp']}
+          alt="legwork"
+          pictureAttributes={{class: ""}}
+        />
+      </figure>
+    </div>
+  </div>
+</section>

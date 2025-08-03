@@ -1,0 +1,101 @@
+---
+import { storyblokEditable } from '@storyblok/astro';
+import StoryblokComponent from '@storyblok/astro/StoryblokComponent.astro';
+import RichTextRenderer from 'storyblok-rich-text-astro-renderer/RichTextRenderer.astro';
+
+import type { RichTextType } from 'storyblok-rich-text-astro-renderer';
+
+export interface Props {
+  blok: {
+    hero_text?: RichTextType;
+    hero_image?: {
+      filename?: string;
+      alt?: string;
+    };
+    _uid: string;
+    component: string;
+  };
+}
+
+const { blok } = Astro.props as Props;
+
+---
+
+<section class="hero" {...storyblokEditable(blok)}>
+  {blok.hero_image?.filename ? (
+    <img
+      class="hero__image"
+      src={blok.hero_image.filename}
+      alt={blok.hero_image.alt ?? 'Hero image'}
+      loading="lazy"
+    />
+  ) : (
+    <div class="hero__image-placeholder">Please add a hero image</div>
+  )}
+
+  <div class="hero__text">
+    {blok.hero_text ? (
+      <RichTextRenderer
+        content={blok.hero_text}
+        {...storyblokEditable(blok)}
+        resolver={(nestedBlok) => ({
+          component: StoryblokComponent,
+          props: { blok: nestedBlok },
+        })}
+      />
+    ) : (
+      <p class="hero__text-placeholder">Please add hero text content</p>
+    )}
+  </div>
+</section>
+
+<style>
+  .hero {
+    position: relative;
+    height: calc(100svh - 95px);
+    overflow: hidden;
+    display: flex;
+    align-items: flex-end;
+    justify-content: flex-start;
+    color: white;
+    padding-block-end: 1rem;
+    padding-inline-start: 1rem;
+  }
+
+  .hero__image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: bottom;
+    z-index: 0;
+  }
+
+  .hero__overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.2);
+    z-index: 1;
+  }
+
+  .hero__text {
+    position: relative;
+    z-index: 2;
+    font-size: 3rem;
+    font-weight: bold;
+    line-height: 1;
+    letter-spacing: -0.05em;
+    margin: 0;
+  }
+
+  @media (min-width: 768px) {
+    .hero__text {
+      font-size: 5rem;
+    }
+  }
+</style>

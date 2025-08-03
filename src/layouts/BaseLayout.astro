@@ -8,15 +8,20 @@ import TheHeader from "../components/TheHeader.astro";
 import MobileNav from "../components/MobileNav.astro";
 import TheFooter from "../components/TheFooter.astro";
 import ButtonBar from "../components/ButtonBar.astro";
-const { title } = Astro.props;
+
+// const { title } = Astro.props;
+const { story } = Astro.props;
+
+const metaTitle = story?.content?.meta_title ?? 'Default Title';
+const metaDescription = story?.content?.meta_description ?? 'Default Description';
 ---
 <!doctype html>
 <html lang="en">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>{title}</title>
-  <meta name="description" content="This is ChangeEazy">
+  <title>{metaTitle}</title>
+  <meta name="description" content={metaDescription}>
 </head>
 <body>
 <TheHeader />

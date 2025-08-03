@@ -1,0 +1,120 @@
+---
+import { storyblokEditable } from '@storyblok/astro'
+
+const { blok } = Astro.props
+---
+<ul class="showcase" {...storyblokEditable(blok)}>
+
+  <li class="showcase-item column">
+    <a href="https://allevents.in/weesp/vergroot-je-flexibiliteit-and-balans-increase-your-flexibility-and-balance/80003268457794" class="showcase-link wiggle-me" target="_blank">
+      <img src="/assets/images/event-balance.jpg" alt="Thumbnail for I coach ME" class="showcase-image" width="600" height="600">
+    </a>
+    <div class="event__content">
+      <time datetime="2025-01-19" class="event__cal">Jan <span>19</span></time>
+      <p class="showcase event__title">Increase your flexibility & balance</p>
+      <p class="event__location">Achtergracht 16, Weesp, The Netherlands</p>
+    </div>
+  </li>
+  <li class="showcase-item column">
+    <a href="/trainings/personal" class="showcase-link wiggle-me">
+      <img src="/assets/images/coachme-600x600.jpg" alt="Thumbnail for I coach ME" class="showcase-image" width="600" height="600">
+    </a>
+    <div class="event__content">
+      <time datetime="2020-10-31" class="event__cal">Oct <span>31</span></time>
+      <p class="showcase event__title">I Coach ME</p>
+      <p class="event__location">Zoom</p>
+    </div>
+  </li>
+  <li class="showcase-item column">
+    <a href="/trainings/manager" class="showcase-link wiggle-me">
+      <img src="/assets/images/1.square-flyer.jpg" alt="Thumbnail for Stress management" class="showcase-image" width="1000" height="1000">
+    </a>
+    <div class="event__content">
+      <time datetime="2025-01-19" class="event__cal">Any <span>Time</span></time>
+      <p class="showcase event__title">Stress Management</p>
+      <p class="event__location">Zoom</p>
+    </div>
+  </li>
+  <!-- <li class="showcase-item column"> -->
+  <!--   <a href="/trainings/performance" class="showcase-link wiggle-me"> -->
+  <!--     <img src="/assets/images/1.office-600x600.jpg" alt="Thumbnail for Effective communication skills" class="showcase-image" width="600" height="600"> -->
+  <!--   </a> -->
+  <!--   <div class="event__content"> -->
+  <!--     <time datetime="2025-01-19" class="event__cal">Jan <span>19</span></time> -->
+  <!--     <p class="showcase event__title">Increase your flexibility & balance</p> -->
+  <!--     <p class="event__location">Achtergracht 16, Weesp, The Netherlands</p> -->
+  <!--   </div> -->
+  <!-- </li> -->
+  <li class="showcase-item column">
+    <a href="/trainings/culture" class="showcase-link wiggle-me">
+      <img src="/assets/images/1.perry-600x600.jpg" alt="Thumbnail for Physical Transformation, The Perry Method" class="showcase-image" width="600" height="600">
+    </a>
+    <div class="event__content">
+      <time datetime="2025-01-19" class="event__cal">TBA <span>TBA</span></time>
+      <p class="showcase event__title">Increase your flexibility & balance</p>
+      <p class="event__location">Achtergracht 16, Weesp, The Netherlands</p>
+    </div>
+  </li>
+</ul>
+<style>
+.showcase {
+  padding: 0;
+  list-style: none;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 1.5rem;
+}
+
+.showcase-item {
+  display: flex;
+  flex-direction: column;
+}
+
+.showcase-link {
+  border: 0;
+}
+
+.event__content * {
+  /* margin: 0; */
+}
+
+.event__content {
+  font-size:  calc(var(--font-size-small) / 16 * 1rem);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-wrap: balance;
+  padding-inline: 1.5rem;
+}
+
+.event__title {
+  font-weight: 700;
+  margin-bottom: 0;
+}
+
+.event__cal {
+  position: relative;
+  top: -21px;
+  background: red;
+  display: inline-flex;
+  padding: 0;
+  flex-direction: column;
+  border-radius: 8px;
+  aspect-ratio: 1 / 1;
+  color: white;
+  box-shadow: #ccc 0px 0px 8px;
+}
+
+.event__cal span {
+  font-size: 24px;
+  font-weight: 100;
+  background: white;
+  color: black;
+  border-bottom-left-radius: 8px;
+  border-bottom-right-radius: 8px;
+}
+
+.showcase-image {
+  border-radius: 100%;
+}
+</style>

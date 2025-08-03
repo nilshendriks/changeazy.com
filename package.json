@@ -10,9 +10,15 @@
     "astro": "astro"
   },
   "dependencies": {
-    "@astrojs/check": "^0.3.4",
+    "@astrojs/check": "^0.9.4",
     "@fontsource/roboto": "^5.0.8",
-    "astro": "^4.0.8",
-    "typescript": "^5.3.3"
+    "@storyblok/astro": "^7.2.1",
+    "astro": "^5.12.8",
+    "storyblok-rich-text-astro-renderer": "^2.7.0",
+    "typescript": "^5.3.3",
+    "vite": "^7.0.6"
+  },
+  "devDependencies": {
+    "vite-plugin-mkcert": "^1.17.8"
   }
 }
