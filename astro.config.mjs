@@ -6,12 +6,13 @@ import mkcert from "vite-plugin-mkcert";
 
 const env = loadEnv(process.env.NODE_ENV, process.cwd(), "VITE_");
 
-const isDev = import.meta.env.MODE === "development";
-const isPreview = import.meta.env.VITE_ENVIRONMENT === "preview";
+const isLocal = import.meta.env.VITE_APP_ENV === "local";
+const isPreview = import.meta.env.VITE_APP_ENV === "preview";
+const isProd = import.meta.env.VITE_APP_ENV === "production";
 
 export default defineConfig({
-  output: isPreview ? "server" : "static",
-  adapter: !isDev && isPreview ? netlify() : undefined,
+  output: isPreview || isProd ? "server" : "static",
+  adapter: isPreview || isProd ? netlify() : undefined,
   vite: {
     plugins: [mkcert()],
   },

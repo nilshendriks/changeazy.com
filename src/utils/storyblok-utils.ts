@@ -1,12 +1,5 @@
-
 export function getStoryblokVersion() {
-  if (import.meta.env.DEV) {
-    return 'draft'; // local dev always draft
-  }
-  if (import.meta.env.VITE_ENVIRONMENT === 'preview') {
-    return 'draft'; // Netlify branch deploys or preview environments
-  }
-  return 'published'; // production builds
+  return import.meta.env.VITE_STORYBLOK_VERSION || 'published';
 }
 
 export function getStoryblokToken() {

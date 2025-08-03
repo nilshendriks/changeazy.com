@@ -1,9 +1,5 @@
 ---
 import { getStoryblokVersion, getStoryblokToken } from '@utils/storyblok-utils';
-
-const version = getStoryblokVersion();
-const token = getStoryblokToken();
-
 import { useStoryblokApi } from '@storyblok/astro';
 import StoryblokComponent from '@storyblok/astro/StoryblokComponent.astro';
 import BaseLayout from '../layouts/BaseLayout.astro';
@@ -11,6 +7,8 @@ import TwoColumnBlock from '@components/TwoColumnBlock.astro';
 
 // Step 1: Generate static paths for all Storyblok pages
 export async function getStaticPaths() {
+    const version = getStoryblokVersion();
+    const token = getStoryblokToken();
     const storyblokApi = useStoryblokApi()
 
     // Fetch all links (pages) from Storyblok
@@ -32,6 +30,10 @@ export async function getStaticPaths() {
         }
     })
 }
+
+// Now do all fetching in the top-level frontmatter (async) block:
+const version = getStoryblokVersion();
+const token = getStoryblokToken();
 
 // Step 2: Get the current slug from the URL
 const { slug } = Astro.params
