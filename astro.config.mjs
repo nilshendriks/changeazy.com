@@ -19,8 +19,8 @@ export default defineConfig({
     storyblok({
       // accessToken: STORYBLOK_PUBLIC_API_TOKEN,
       accessToken: import.meta.env.DEV
-        ? STORYBLOK_PREVIEW_API_TOKEN
-        : STORYBLOK_PUBLIC_API_TOKEN,
+        ? import.meta.env.STORYBLOK_PREVIEW_API_TOKEN
+        : import.meta.env.STORYBLOK_PUBLIC_API_TOKEN,
       apiOptions: {
         region: "eu", // or 'us'
       },
