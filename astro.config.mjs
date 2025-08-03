@@ -18,7 +18,9 @@ export default defineConfig({
   },
   integrations: [
     storyblok({
-      accessToken: env.VITE_STORYBLOK_PREVIEW_API_TOKEN,
+      accessToken: isPreview
+        ? env.VITE_STORYBLOK_PREVIEW_API_TOKEN
+        : env.VITE_STORYBLOK_PUBLIC_API_TOKEN,
       apiOptions: {
         region: "eu", // or 'us'
       },
