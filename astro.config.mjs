@@ -1,26 +1,26 @@
 import { defineConfig } from "astro/config";
-import { storyblok } from "@storyblok/astro";
 import { loadEnv } from "vite";
-
-const env = loadEnv(import.meta.env.MODE, process.cwd(), "");
-
-// Destructure the actual token
-// const { STORYBLOK_DELIVERY_API_TOKEN } = env;
-const { STORYBLOK_PREVIEW_API_TOKEN, STORYBLOK_PUBLIC_API_TOKEN } = env;
-
+import netlify from "@astrojs/netlify";
+import { storyblok } from "@storyblok/astro";
 import mkcert from "vite-plugin-mkcert";
 
+const env = loadEnv(process.env.NODE_ENV, process.cwd(), "VITE_");
+
+const isLocal = import.meta.env.VITE_APP_ENV === "local";
+const isPreview = import.meta.env.VITE_APP_ENV === "preview";
+const isProd = import.meta.env.VITE_APP_ENV === "production";
+
 export default defineConfig({
-  //output: "server", // needed for live preview
+  output: isPreview || isProd ? "server" : "static",
+  adapter: isPreview || isProd ? netlify() : undefined,
   vite: {
     plugins: [mkcert()],
   },
   integrations: [
     storyblok({
-      // accessToken: STORYBLOK_PUBLIC_API_TOKEN,
-      accessToken: import.meta.env.DEV
-        ? STORYBLOK_PREVIEW_API_TOKEN
-        : STORYBLOK_PUBLIC_API_TOKEN,
+      accessToken: isPreview
+        ? env.VITE_STORYBLOK_PREVIEW_API_TOKEN
+        : env.VITE_STORYBLOK_PUBLIC_API_TOKEN,
       apiOptions: {
         region: "eu", // or 'us'
       },
