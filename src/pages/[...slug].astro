@@ -1,19 +1,13 @@
 ---
+import { getStoryblokVersion, getStoryblokToken } from '@utils/storyblok-utils';
+
+const version = getStoryblokVersion();
+const token = getStoryblokToken();
+
 import { useStoryblokApi } from '@storyblok/astro';
 import StoryblokComponent from '@storyblok/astro/StoryblokComponent.astro';
 import BaseLayout from '../layouts/BaseLayout.astro';
 import TwoColumnBlock from '@components/TwoColumnBlock.astro';
-
-// Determine Storyblok version (draft or published)
-const getVersion = () => {
-  if (import.meta.env.DEV) {
-    return 'draft'; // local dev always draft
-  }
-  if (import.meta.env.STORYBLOK_PREVIEW === 'true') {
-    return 'draft'; // Netlify deploy previews get draft
-  }
-  return 'published'; // production builds get published
-}
 
 // Step 1: Generate static paths for all Storyblok pages
 export async function getStaticPaths() {
@@ -21,13 +15,11 @@ export async function getStaticPaths() {
 
     // Fetch all links (pages) from Storyblok
     // Includes unpublished pages for development
-    // const { data } = await storyblokApi.get('cdn/links', {
-    //   version: import.meta.env.DEV ? 'draft' : 'published',
-    // })
     const { data } = await storyblokApi.get('cdn/links', {
-      version: getVersion(),
-    })
-    
+      version,
+      token,
+    });
+
     // Storyblok returns links as an object keyed by UUID —
     // we convert it to an array so we can map over it and generate static paths.
     const links = Object.values(data.links) as { slug: string }[];
@@ -50,18 +42,12 @@ const storyblokApi = useStoryblokApi()
 const { data } = await storyblokApi.get(
   `cdn/stories/${slug === undefined ? 'home' : slug}`,
   {
-    version: getVersion(),
+    version,
+    token,
   }
 )
-// const { data } = await storyblokApi.get(
-// `cdn/stories/${slug === undefined ? 'home' : slug}`,
-// {
-//     version: import.meta.env.DEV ? 'draft' : 'published',
-// }
-// )
 
 const story = data.story
-
 ---
 
 <BaseLayout story={story}>

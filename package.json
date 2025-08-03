@@ -11,6 +11,7 @@
   },
   "dependencies": {
     "@astrojs/check": "^0.9.4",
+    "@astrojs/netlify": "^6.5.5",
     "@fontsource/roboto": "^5.0.8",
     "@storyblok/astro": "^7.2.1",
     "astro": "^5.12.8",
