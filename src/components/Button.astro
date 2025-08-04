@@ -1,15 +1,19 @@
+
 ---
-const { blok } = Astro.props;
+export interface Props {
+  url: string;
+  text: string;
+  style?: 'primary' | 'secondary';
+}
+
+const { url, text, style = 'secondary' } = Astro.props;
 ---
 
-<a
-  href={blok.url}
-  class={`btn ${blok.style ? `btn--${blok.style.toLowerCase()}` : ''}`}
->
-  {blok.text}
+<a href={url} class={`btn btn--${style.toLowerCase()}`}>
+  {text}
 </a>
-<style>
 
+<style>
 .btn {
   display: inline-block;
   background-color: var(--color-background-secondary);
@@ -18,10 +22,11 @@ const { blok } = Astro.props;
   padding: 10px 12px;
   border-bottom: none;
   border-radius: 8px;
-  transition: all .3s ease;
+  transition: all 0.3s ease;
 }
 
-.btn:focus, .btn:hover {
+.btn:focus,
+.btn:hover {
   background-color: var(--color-neutral-10);
   color: var(--color-text-base-invert);
 }

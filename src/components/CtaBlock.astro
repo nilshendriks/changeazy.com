@@ -1,0 +1,38 @@
+---
+import Button from "@components/Button.astro";
+---
+<section class="section-cta fs-small">
+  <div class="section-cta__inner">
+
+    <div class="section-cta__content">
+      <p>For more information or an intake interview, please contact Niki via
+        <a href="mailto:nikifekete@changeazy.com">email</a> or <a href="tel:+31653885727">phone</a>.
+      </p>
+        <Button url="mailto:nikifekete@changeazy.com" text="Email" style="secondary" />
+        <Button url="tel:+31653885727" text="Phone" style="secondary" />
+    </div>
+
+  </div>
+</section>
+<style>
+
+.section-cta {
+  text-align: center;
+  padding-block: 2em;
+}
+
+.section-cta__inner {
+  width: min(1140px, 100% - 3rem);
+  margin-inline: auto;
+}
+
+.section-cta__content {
+  width: min(360px, 100%);
+  margin-inline: auto;
+  text-wrap: balance;
+}
+
+.section-cta p {
+  margin-bottom: 1rem;
+}
+</style>
