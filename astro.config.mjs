@@ -42,6 +42,7 @@ export default defineConfig({
         showcase: "storyblok/Showcase",
         simple_section: "storyblok/SimpleSection",
         button: "storyblok/Button",
+        two_column_block: "storyblok/TwoColumnBlock",
       },
       // livePreview: true, // optional but recommended
     }),
