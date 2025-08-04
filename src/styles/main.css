@@ -20,6 +20,10 @@
   --color-background-tertiary: var(--color-neutral-96);
   --color-background-base: var(--color-neutral-100);
 
+  /* text */
+  --color-text-base: var(--color-neutral-10);
+  --color-text-base-invert: var(--color-neutral-100);
+
   --font-size-base: 16;
   --font-size-small: 12;
   --font-size-xs: 10;
@@ -71,7 +75,7 @@ summary {
 
 html {
   background-color: #fafafa;
-  color: #444;
+  color: var(--color-text-base);
   font-family: "Roboto", sans-serif;
   font-size: 1rem;
   line-height: 1.5;
@@ -406,164 +410,6 @@ footer a + p {
   font-size: 14px;
 }
 
-.mdl-buttonbar {
-  text-align: center;
-  padding-block: 2em;
-}
-
-.mdl-buttonbar p {
-  margin-bottom: 1rem;
-}
-
-/* .mdl-hero { */
-/*   background-color: #fff; */
-/* } */
-/**/
-/* .mdl-hero .motto { */
-/*   margin-bottom: 1em; */
-/* } */
-/**/
-/* @media only screen and (min-width: 768px) { */
-/*   .mdl-hero { */
-/*     max-height: 500px; */
-/*     overflow: hidden; */
-/*     clear: both; */
-/*     position: relative; */
-/*   } */
-/**/
-/*   .mdl-hero .motto { */
-/*     float: left; */
-/*     transform: translate(-50%, -50%); */
-/*     position: absolute; */
-/*     left: 30%; */
-/*     top: 50%; */
-/*   } */
-/**/
-/*   .mdl-hero .motto + img, */
-/*   .mdl-hero .motto + picture { */
-/*     float: right; */
-/*     max-width: 50%; */
-/*   } */
-/**/
-/*   .mdl-hero .motto p { */
-/*     text-align: left; */
-/*   } */
-/* } */
-
-/* .mdl-hero p { */
-/*   font-size: 2.25rem; */
-/*   font-weight: 100; */
-/*   margin: 0; */
-/*   line-height: 1; */
-/*   text-align: center; */
-/* } */
-/**/
-/* .mdl-hero p + p { */
-/*   font-weight: 300; */
-/* } */
-/**/
-/* .mdl-hero p + p + p { */
-/*   font-weight: 400; */
-/* } */
-
-/* .showcase { */
-/*   position: relative; */
-/*   list-style: none !important; */
-/* } */
-/**/
-/* .showcase-item { */
-/*   list-style: none !important; */
-/*   margin-bottom: 0.75rem; */
-/*   position: relative; */
-/* } */
-
-/* @media all and (min-width: 38em) { */
-/*   .showcase-item:nth-last-child(3n + 2):first-child, */
-/*   .showcase-item:nth-last-child(3n + 2):first-child + .showcase-item, */
-/*   .showcase-item:nth-last-child(3n + 1):first-child, */
-/*   .showcase-item:nth-last-child(3n + 1):first-child */
-/*     ~ .showcase-item:nth-child(-n + 4) { */
-/*     width: 50%; */
-/*   } */
-/* } */
-
-/* @media all and (min-width: 56em) { */
-/*   .showcase-item { */
-/*     width: 33.33%; */
-/*   } */
-/* } */
-
-/* .showcase-link { */
-/*   display: block; */
-/*   position: relative; */
-/*   padding-top: 100%; */
-/*   z-index: 0; */
-/*   border-bottom: 0; */
-/* } */
-
-/* .showcase-caption { */
-/*   position: absolute; */
-/*   top: 0.75rem; */
-/*   left: 0.75rem; */
-/*   right: 0.75rem; */
-/*   bottom: 0.75rem; */
-/*   background: rgba(38, 30, 102, 0.95); */
-/*   color: #fff; */
-/*   letter-spacing: 0.05em; */
-/*   transition: 0.5s background-color; */
-/* } */
-
-/* .showcase-title { */
-/*   margin-bottom: 0; */
-/*   text-align: center; */
-/*   width: 100%; */
-/*   padding: 0 1.5rem; */
-/* Vertically center the caption */
-/*   position: absolute; */
-/*   top: 50%; */
-/*   transform: translateY(-50%); */
-/*   transition: 0.5s font-size; */
-/* } */
-
-/* .showcase-image { */
-/*   display: block; */
-/*   position: absolute; */
-/*   left: 0; */
-/*   top: 0; */
-/* } */
-
-/* .showcase-link:hover .showcase-caption, */
-/* .showcase-link:focus .showcase-caption { */
-/*   background-color: var(--color-brand-primary); */
-/* } */
-
-/* .showcase-link:hover .showcase-caption .showcase-title, */
-/* .showcase-link:focus .showcase-caption .showcase-title { */
-/*   font-size: 30px; */
-/*   text-shadow: 1px 1px 2px black; */
-/* } */
-
-/* .showcase-title { */
-/*   font-size: 0.85em; */
-/* } */
-/* } */
-
-/* @keyframes wiggle { */
-/*   0% { */
-/*     transform: rotate(3deg); */
-/*   } */
-/*   50% { */
-/*     transform: rotate(-3deg); */
-/*   } */
-/*   100% { */
-/*     transform: rotate(3deg); */
-/*   } */
-/* } */
-/**/
-/* .wiggle-me:hover { */
-/*   animation: wiggle 0.3s 2; */
-/* } */
-
 blockquote,
 q {
   quotes: none;
@@ -681,25 +527,4 @@ dt {
 
 dd + dt {
   margin-top: 1em;
-}
-
-.btn {
-  display: inline-block;
-  background-color: var(--color-background-secondary);
-  color: #fff;
-  font-weight: 700;
-  padding: 10px 12px;
-  border-bottom: none;
-  border-radius: 14px;
-  transition: all 0.3s ease;
-}
-
-.btn:focus,
-.btn:hover {
-  background-color: var(--color-neutral-10);
-  color: #fff;
-}
-
-.btn--primary {
-  background-color: var(--color-background-primary);
 }

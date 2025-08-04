@@ -27,7 +27,8 @@ const { blok } = Astro.props as Props;
       class="hero__image"
       src={blok.hero_image.filename}
       alt={blok.hero_image.alt ?? 'Hero image'}
-      loading="lazy"
+      loading="eager"
+      fetchpriority="high"
     />
   ) : (
     <div class="hero__image-placeholder">Please add a hero image</div>
