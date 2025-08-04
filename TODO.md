@@ -1,9 +1,9 @@
 # TODO
 
-- fix events , cal "icons"
-
 ## Later
 
+- fix events , cal "icons"
+- manifest screenshots wide.
 - re-design
   - events -> trainings
 - image optimisation: width and heights from image?
@@ -40,3 +40,30 @@ html
 Copy
 Edit
 <img src="/image-proxy?url=https://a.storyblok.com/xyz.jpg" />
+
+/_ Single screenshot _/
+"screenshots": [
+{
+"src": "desktop.webp",
+"sizes": "1280x720",
+"type": "image/webp"
+}
+]
+
+/_ Two screenshots _/
+"screenshots": [
+{
+"src": "screenshots/home.webp",
+"sizes": "1280x720",
+"type": "image/webp",
+"form_factor": "wide",
+"label": "Home screen showing main navigation and featured content"
+},
+{
+"src": "screenshots/dashboard.webp",
+"sizes": "1280x720",
+"type": "image/webp",
+"platform": "ios",
+"label": "Dashboard view displaying key metrics"
+}
+]
