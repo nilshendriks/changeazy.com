@@ -1,0 +1,111 @@
+
+---
+import { storyblokEditable } from '@storyblok/astro';
+import StoryblokComponent from '@storyblok/astro/StoryblokComponent.astro';
+
+const { blok } = Astro.props;
+---
+
+<section
+  class={`section-two-columns section-two-columns--bg-${blok.background || 'tertiary'} 
+    ${blok.overflow ? 'section-two-columns--overflow' : ''} 
+    ${blok.reverse ? 'section-two-columns--reverse' : ''}
+  `}
+  {...storyblokEditable(blok)}
+>
+  <div class="section-two-columns__inner">
+    <div class="section-two-columns__grid">
+      <div class="section-two-columns__grid-item">
+        {blok.caption && <p class="section-two-columns__caption">{blok.caption}</p>}
+
+        {blok.title && (() => {
+          const Heading = blok.heading_level || 'h2';
+          return <Heading class="section-two-columns__title">{blok.title}</Heading>;
+        })()}
+
+        {blok.content && blok.content.length > 0 && (
+          <div class="section-two-columns__text">
+            {blok.content.map((nestedBlock) => (
+              <StoryblokComponent blok={nestedBlock} />
+            ))}
+          </div>
+        )}
+
+        {blok.button && blok.button.length > 0 && (
+          <StoryblokComponent blok={blok.button[0]} />
+        )}
+      </div>
+
+      <div class="section-two-columns__grid-item">
+        {blok.image?.filename && (
+          <img
+            src={blok.image.filename}
+            alt={blok.image.alt || ''}
+            width="821"
+            height="1830"
+            class="section-two-columns__img"
+          />
+        )}
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+.section-two-columns {
+  background-color: var(--color-background-base);
+  padding-block: 2lh;
+}
+
+.section-two-columns__inner {
+  background-color: var(--color-background-primary-light);
+  width: min(768px, 100% - 3rem);
+  margin-inline: auto;
+  border-radius: 8px;
+}
+
+.section-two-columns--bg-tertiary .section-two-columns__inner {
+  background-color: var(--color-background-tertiary);
+}
+
+.section-two-columns--bg-primary .section-two-columns__inner {
+  background-color: var(--color-background-primary-light);
+}
+
+.section-two-columns--bg-secondary .section-two-columns__inner {
+  background-color: var(--color-background-secondary-light);
+}
+
+.section-two-columns__grid {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.section-two-columns--reverse .section-two-columns__grid {
+  flex-direction: row-reverse;
+}
+
+.section-two-columns__grid-item {
+  flex: 1 1 270px;
+  padding: 1.5rem;
+}
+
+.section-two-columns__caption {
+    text-transform: uppercase;
+  letter-spacing: 1px;
+  color: #727272;
+  font-weight: 700;
+}
+
+.section-two-columns__img {
+  display: block;
+}
+
+.section-two-columns--overflow .section-two-columns__img {
+  object-fit: cover;
+  transform: scale(1.2);
+  width: 75%;
+  margin-inline: auto;
+}
+</style>

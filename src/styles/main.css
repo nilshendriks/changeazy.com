@@ -9,6 +9,7 @@
   --color-neutral-20: hsl(from var(--color-black) h s 20);
   --color-neutral-30: hsl(from var(--color-black) h s 30);
   --color-neutral-96: hsl(from var(--color-black) h s 96);
+  --color-neutral-100: hsl(from var(--color-black) h s 100);
 
   --color-background-primary: var(--color-brand-primary);
   --color-background-primary-light: hsl(from var(--color-brand-primary) h s 95);
@@ -17,6 +18,7 @@
     from var(--color-brand-secondary) h s 95
   );
   --color-background-tertiary: var(--color-neutral-96);
+  --color-background-base: var(--color-neutral-100);
 
   --font-size-base: 16;
   --font-size-small: 12;
@@ -701,4 +703,3 @@ dd + dt {
 .btn--primary {
   background-color: var(--color-background-primary);
 }
-
