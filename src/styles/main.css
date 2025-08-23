@@ -14,9 +14,7 @@
   --color-background-primary: var(--color-brand-primary);
   --color-background-primary-light: hsl(from var(--color-brand-primary) h s 95);
   --color-background-secondary: var(--color-brand-secondary);
-  --color-background-secondary-light: hsl(
-    from var(--color-brand-secondary) h s 95
-  );
+  --color-background-secondary-light: hsl(from var(--color-brand-secondary) h s 95);
   --color-background-tertiary: var(--color-neutral-96);
   --color-background-base: var(--color-neutral-100);
 
@@ -27,6 +25,8 @@
   --font-size-base: 16;
   --font-size-small: 12;
   --font-size-xs: 10;
+
+  --radius-border-base: 8px;
 }
 
 /* -----  1.2 Reset & Normalization  ---------------------------------------- */
@@ -406,7 +406,7 @@ footer a {
   margin-bottom: 1em;
 }
 
-footer a + p {
+footer a+p {
   font-size: 14px;
 }
 
@@ -425,6 +425,7 @@ blockquote p:before {
 }
 
 @media only screen and (min-width: 768px) {
+
   q p:before,
   blockquote p:before {
     /* font-size: 60px; */
@@ -440,6 +441,7 @@ blockquote p:after {
 }
 
 @media only screen and (min-width: 768px) {
+
   q p:after,
   blockquote p:after {
     /* font-size: 60px; */
@@ -453,6 +455,7 @@ blockquote p {
 }
 
 @media only screen and (min-width: 768px) {
+
   q p,
   blockquote p {
     /* font-size: 22px; */
@@ -511,8 +514,8 @@ hr::after {
   top: -0.25rem;
 }
 
-h1 + hr,
-.intro + hr {
+h1+hr,
+.intro+hr {
   margin-top: -1.5rem;
 }
 
@@ -525,6 +528,6 @@ dt {
   font-style: normal;
 }
 
-dd + dt {
+dd+dt {
   margin-top: 1em;
 }

@@ -68,6 +68,7 @@ const { blok } = Astro.props
 .showcase-item {
   display: flex;
   flex-direction: column;
+  row-gap: 16px;
 }
 
 .showcase-link {
@@ -85,6 +86,7 @@ const { blok } = Astro.props
   align-items: center;
   text-wrap: balance;
   padding-inline: 1.5rem;
+  row-gap: 8px;
 }
 
 .event__title {
@@ -93,13 +95,13 @@ const { blok } = Astro.props
 }
 
 .event__cal {
-  position: relative;
-  top: -21px;
+  /* position: relative; */
+  /* top: -21px; */
   background: hsl(0 100% 46% / 1);
   display: inline-flex;
   padding: 0;
   flex-direction: column;
-  border-radius: 8px;
+  border-radius: var(--radius-border-base);
   aspect-ratio: 1 / 1;
   color: var(--color-text-base-invert);
   font-weight: 700;
@@ -109,10 +111,15 @@ const { blok } = Astro.props
 .event__cal span {
   font-size: 24px;
   font-weight: 100;
-  background: white;
-  color: black;
-  border-bottom-left-radius: 8px;
-  border-bottom-right-radius: 8px;
+  background: var(--color-background-base, #fff);
+  color: var(--color-text-base, #000);
+  border-bottom-left-radius: var(--radius-border-base);
+  border-bottom-right-radius: var(--radius-border-base);
+flex: 1;
+display: flex;
+justify-content: center;
+align-items: center;
+padding: 4px;
 }
 
 .showcase-image {
