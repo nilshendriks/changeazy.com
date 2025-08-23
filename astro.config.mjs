@@ -34,7 +34,7 @@ export default defineConfig({
         textblock: "storyblok/TextBlock",
         hero: "storyblok/Hero",
         hero_block: "storyblok/HeroBlock",
-        coaching: "storyblok/Coaching",
+        // coaching: "storyblok/Coaching",
         training: "storyblok/Training",
         bodywork: "storyblok/Bodywork",
         about: "storyblok/About",
