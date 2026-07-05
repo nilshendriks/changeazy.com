@@ -1,24 +1,61 @@
 ---
 import { storyblokEditable } from '@storyblok/astro'
+import { getUpcomingEvents } from '../lib/allevents';
 
 const { blok } = Astro.props
+
+const events = await getUpcomingEvents();
+
+// console.log(events);
 ---
 <ul class="showcase" {...storyblokEditable(blok)}>
-
-  <li class="showcase-item column">
-    <a
-        href="https://allevents.in/tba/patterns-of-physical-transformation-the-perry-method-5-days-training-tickets/80002025927882"
+{events.map((event) => (
+    <li class="showcase-item column">
+      <a
+        href={event.event_url}
         class="showcase-link wiggle-me"
         target="_blank"
-    >
-      <img src="/assets/images/pm-flyer.webp" alt="Thumbnail for I coach ME" class="showcase-image" width="600" height="600">
-    </a>
-    <div class="event__content">
-      <time datetime="2026-10-16" class="event__cal">Oct <span>16</span></time>
-      <p class="showcase event__title">Patterns of Physical Transformation - The Perry Method</p>
-      <p class="event__location">TBA</p>
-    </div>
-  </li>
+      >
+        <img
+          src={event.banner_url}
+          alt={event.eventname}
+          class="showcase-image"
+          width="600"
+          height="600"
+        />
+      </a>
+
+      <div class="event__content">
+        <time
+        datetime={new Date(event.start_time * 1000).toISOString().slice(0, 10)}
+        class="event__cal"
+      >
+        {event.display_month}
+        <span>{event.display_day}</span>
+      </time>
+        <p class="event__title">{event.eventname}</p>
+            <p class="event__location">
+{event.venue.city === "TBA" ? "TBA" : event.location}
+            </p>
+      </div>
+    </li>
+  ))}
+
+  <!-- Existing hardcoded items stay here -->
+  <!-- <li class="showcase-item column"> -->
+  <!--   <a -->
+  <!--       href="https://allevents.in/tba/patterns-of-physical-transformation-the-perry-method-5-days-training-tickets/80002025927882" -->
+  <!--       class="showcase-link wiggle-me" -->
+  <!--       target="_blank" -->
+  <!--   > -->
+  <!--     <img src="/assets/images/pm-flyer.webp" alt="Thumbnail for I coach ME" class="showcase-image" width="600" height="600"> -->
+  <!--   </a> -->
+  <!--   <div class="event__content"> -->
+  <!--     <time datetime="2026-10-16" class="event__cal">Oct <span>16</span></time> -->
+  <!--     <p class="showcase event__title">Patterns of Physical Transformation - The Perry Method</p> -->
+  <!--     <p class="event__location">TBA</p> -->
+  <!--   </div> -->
+  <!-- </li> -->
   <li class="showcase-item column">
     <a href="https://allevents.in/weesp/vergroot-je-flexibiliteit-and-balans-increase-your-flexibility-and-balance/80003268457794" class="showcase-link wiggle-me" target="_blank">
       <img src="/assets/images/event-balance.jpg" alt="Thumbnail for I coach ME" class="showcase-image" width="600" height="600">
@@ -138,6 +175,7 @@ padding: 4px;
 
 .showcase-image {
   border-radius: 100%;
-    aspect-ratio: 1 / 1;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
 }
 </style>
